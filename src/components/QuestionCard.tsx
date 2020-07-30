@@ -22,9 +22,10 @@ export const QuestionCard: React.FC<Props> = ({
   return (
     <Wrapper>
       <p>Question: {questionNumber} / {totalQuestion}</p>
+      <p>{question}</p>
       {
       answers.map((answer) => (
-        <ButtonWrapper key={answer} onClick={callback} >{answer}</ButtonWrapper>
+        <ButtonWrapper key={answer} onClick={callback} disabled={userAnswer? true :false} userClicked={userAnswer?.answer === answer} correct={userAnswer?.correct_answer === answer} >{answer}</ButtonWrapper>
             ))
       }
     </Wrapper>

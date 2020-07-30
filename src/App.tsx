@@ -83,7 +83,7 @@ const App = () => {
       />
       }
 
-      {!loading && !gameOver && number+1 !== TOTAL_QUESTIONS &&
+      {!loading && !gameOver && userAnswers.length-1 === number && number !== TOTAL_QUESTIONS-1 &&
       <button className="next" onClick={nextQuestion}>Next</button>
 }
 
