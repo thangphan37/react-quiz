@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { fetchQuizQuestions, Difficulty, QuestionState } from "./API";
 import { QuestionCard } from "./components/QuestionCard";
+import { GlobalStyle, Card } from "./App.styles";
+
 const TOTAL_QUESTIONS = 10;
 
 export type AnswerObject = {
@@ -64,9 +66,11 @@ const App = () => {
   };
 
   return (
-    <div>
-      <button onClick={startGame}>Start</button>
-      <p>Score:{score}</p>
+    <Card>
+      <GlobalStyle/>
+      <h1>REACT QUIZ</h1>
+      <button className="start" onClick={startGame}>Start</button>
+      <p className="score">Score:{score}</p>
       {loading && <p>Loading questions...</p>}
       {!loading && !gameOver && 
       <QuestionCard 
@@ -80,10 +84,10 @@ const App = () => {
       }
 
       {!loading && !gameOver && number+1 !== TOTAL_QUESTIONS &&
-      <button onClick={nextQuestion}>Next</button>
+      <button className="next" onClick={nextQuestion}>Next</button>
 }
 
-    </div>
+    </Card>
   );
 };
 
